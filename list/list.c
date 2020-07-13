@@ -13,7 +13,7 @@ int IsEmpty(List L){
     return L->Next == NULL;
 }
 
-//Âà§Êñ≠ÂΩìÂâç‰ΩçÁΩÆÊòØÂê¶ÊòØÈìæË°®Êú´Â∞æ
+//Âà§Êñ≠ÂΩìÂâç‰ΩçÁΩÆÊòØÂê¶ÊòØÈìæË°®Êú´Â∞?
 int IsLast(Position P, List L) {
     return P->Next == NULL;
 }
@@ -54,7 +54,7 @@ void Delete(ElementType X, List L) {
 /* Parameter L is unused in this implementation */
 void Insert(ElementType X, List L, Position P) {
     Position TmpCell;
-    TmpCell = malloc(sizeof(struct Node));
+    TmpCell = (Position)malloc(sizeof(struct Node));
     if(TmpCell == NULL) {
         printf("Out of space!!");
     }
@@ -77,7 +77,18 @@ void DeleteList(List L) {
 
 
 int main(void) {
-    
-    system("pause");   //Èò≤Ê≠¢Èó™ÈÄÄ
+    List L = (Position)malloc(sizeof(struct Node));
+    List L2 = (Position)malloc(sizeof(struct Node));
+    L2->Next = NULL;
+    Position n1 = (Position)malloc(sizeof(struct Node));
+    n1->Element = 1;
+    Position n2 = (Position)malloc(sizeof(struct Node));
+    n2->Element = 2;
+    L->Next = n1;
+    n1->Next = n2;
+    n2->Next = NULL;
+    printf(" «∑Ò «ø’¡¥±Ì%d\n", IsEmpty(L));
+    printf(" «∑Ò «ø’¡¥±Ì%d\n", IsEmpty(L2));
+    system("pause");   //∑¿÷π…¡ÕÀ
     return 0;
 }
